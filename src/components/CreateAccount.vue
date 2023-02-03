@@ -1,15 +1,14 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 </script>
 
 <template>
   <body>
     <div class="box">
       <form class="login-form">
-        <img src="grad.jpg" />
-        <h1>StuDecide</h1>
-        <h2>Hello</h2>
-        <h4>Login to your account</h4>
+        <h1>Create Account</h1>
+        <input type="text" name="FirstName" placeholder="First Name" required />
+        <input type="text" name="LastName" placeholder="Last Name" required />
         <input type="text" name="Email" placeholder="Email" required />
         <input
           type="password"
@@ -17,9 +16,13 @@ import { ref, reactive } from "vue";
           placeholder="Password"
           required
         />
-        <input type="submit" name="Login" value="Login" />
+        <div class="condition">
+          <input type="checkbox" id="Condition" name="Condition" />
+          <h4>I agree to the Terms and Conditions</h4>
+        </div>
+
         <div class="links">
-          <a href="/CreateAccount">Don't have an account? Create</a>
+          <a href="/Tasks"> <input type="button" value="Sign Up" /></a>
         </div>
       </form>
     </div>
@@ -42,18 +45,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #e6bbad;
-  /* background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%); */
-  /* background-image: url("study3.jpg"); */
   background-size: cover;
   height: 100vh;
 }
 .login-form {
-  /* min-width: 250px;
-  max-width: 400px; */
-  /* width: 350px;
-  height: 600px; */
-  width: 26%;
-  height: 93%;
+  width: 350px;
+  height: 600px;
   left: 789px;
   border-radius: 24px;
   padding: 15px;
@@ -62,34 +59,10 @@ body {
 }
 .login-form h1 {
   text-align: center;
-  margin-top: 5px;
   font-family: "Montserrat";
-  margin-top: 7px;
-}
-.login-form h2 {
-  font-family: "Montserrat";
-  margin-top: 28px;
-  margin-bottom: 0px;
-  margin-left: 10px;
-}
-.login-form h4 {
-  font-family: "Montserrat";
-  margin-top: 1px;
-  opacity: 0.7;
-  font-size: 15px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin-top: 70px;
 }
 
-.login-form img {
-  width: 105px;
-  height: 90px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
-}
 .login-form input[type="text"] {
   margin-top: 0px;
 }
@@ -100,31 +73,36 @@ input {
   outline: none;
 }
 
+.condition h4 {
+  font-size: 13px;
+  font-family: "Montserrat";
+  margin-left: 58px;
+  margin-top: -17px;
+}
+
+.condition input[type="checkbox"] {
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 40px;
+  margin-left: 24px;
+}
 .links {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  text-decoration: none;
 }
 .links > a:first-of-type {
   margin-right: 5px;
 }
 .links > a {
-  margin-left: 45px;
+  margin-left: 80px;
   margin-top: 30px;
   font-family: "Montserrat";
   font-size: 15px;
-  /* background-color: #e0e0e0;
-  border-radius: 24px;
-  font-weight: 400;
-  color: black;
-  line-height: 12px;
-  flex: 1;
-  text-align: center;
-  padding: 10px;
   text-decoration: none;
-  font-family: "Raleway";
-  transition: 0.25s; */
 }
 .links > a:hover {
   opacity: 0.6;
@@ -132,9 +110,6 @@ input {
 
 .login-form input[type="submit"] {
   background: linear-gradient(135deg, #fff886 0%, #f072b6 100%);
-  /* background-color: #e0e0e0;
-  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
-  width: 100%; */
   color: rgb(0, 0, 0);
   border: none;
   margin-top: 17px;
@@ -150,7 +125,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  margin-top: 35px;
+  margin-top: 0px;
 }
 .login-form input[type="submit"]:hover {
   opacity: 0.8;
@@ -161,16 +136,34 @@ input {
 }
 .login-form input[type="text"],
 .login-form input[type="password"] {
-  /* width: 315px;
-  height: 40px; */
-  height: 7%;
-  width: 95%;
+  width: 315px;
+  height: 40px;
   border: none;
   border-radius: 24px;
+  font-family: "Montserrat";
   font-size: 1rem;
   font-family: "Raleway", sans-seriff;
   background-color: white;
   padding: 15px;
   margin-top: 15px;
+}
+
+.links input[type="button"] {
+  background: linear-gradient(135deg, #fff886 0%, #f072b6 100%);
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 24px;
+  transition: 0.25s;
+  width: 155px;
+  height: 37px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20px;
 }
 </style>
